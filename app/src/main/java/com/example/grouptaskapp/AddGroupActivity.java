@@ -64,8 +64,8 @@ public class AddGroupActivity extends AppCompatActivity {
             listArray3.add(h);
         }
 
-        SingleSpinner singleSpinner = (SingleSpinner) findViewById(R.id.singleSpinner);
-        singleSpinner.setItems(listArray3, -1, new SpinnerListener() {
+        MultiSpinnerSearch multiSpinner = (MultiSpinnerSearch) findViewById(R.id.multiSpinner);
+        multiSpinner.setItems(listArray3,"Find Users", -1, new MultiSpinnerSearch.MultiSpinnerSearchListener() {
 
             @Override
             public void onItemsSelected(List<KeyPairBoolData> items) {

@@ -14,7 +14,7 @@ import android.widget.ListView;
 public class TaskDetails extends AppCompatActivity {
 
     //Test values
-    String[] taskUsers = {"Tim","Jayson"};
+    String[] taskUsers = {"Tim","Jason"};
 
     //Dates[] taskDates = {};
     String taskName;

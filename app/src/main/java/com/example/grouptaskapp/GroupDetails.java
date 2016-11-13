@@ -14,7 +14,7 @@ import android.widget.ListView;
 public class GroupDetails extends AppCompatActivity {
 
     //Test values
-    String[] groupUsers = {"Tim","Jayson"};
+    String[] groupUsers = {"Tim","Jason"};
     String[] groupTasks = {"Progress Report","Hw 1","HW 2","HW3"};
     //Dates[] taskDates = {};
     String groupName;

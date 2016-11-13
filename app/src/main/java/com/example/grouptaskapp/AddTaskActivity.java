@@ -49,8 +49,7 @@ public class AddTaskActivity extends AppCompatActivity {
         // TODO: Make multiSpinner work
         //Spinner Stuff
         // link: https://github.com/pratikbutani/MultiSelectSpinner
-        // need help getting multispinner to work, only single spinner works right now
-        //MultiSpinner simpleSpinner = (MultiSpinner) findViewById(R.id.simpleMultiSpinner);
+
         final List<String> list = Arrays.asList(allUsers);
 
         final List<KeyPairBoolData> listArray3 = new ArrayList<>();
@@ -63,8 +62,9 @@ public class AddTaskActivity extends AppCompatActivity {
             listArray3.add(h);
         }
 
-        SingleSpinner singleSpinner = (SingleSpinner) findViewById(R.id.singleSpinner);
-        singleSpinner.setItems(listArray3, -1, new SpinnerListener() {
+
+        MultiSpinnerSearch multiSpinner = (MultiSpinnerSearch) findViewById(R.id.multiSpinner);
+        multiSpinner.setItems(listArray3,"Find Users", -1, new MultiSpinnerSearch.MultiSpinnerSearchListener() {
 
             @Override
             public void onItemsSelected(List<KeyPairBoolData> items) {
@@ -104,7 +104,7 @@ public class AddTaskActivity extends AppCompatActivity {
         //String groupMembers = _groupMembers.getText().toString();
         String taskDeadline = _taskDeadLine.getText().toString();
 
-        // TODO: Send new Group info to backend to be saved
+        // TODO: Send new Task info to backend to be saved
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
