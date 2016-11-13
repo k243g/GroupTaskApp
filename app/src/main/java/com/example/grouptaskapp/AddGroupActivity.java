@@ -9,10 +9,16 @@ import android.util.Log;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -27,12 +33,24 @@ public class AddGroupActivity extends AppCompatActivity {
     @InjectView(R.id.btn_addUsers) Button _addUsers;
     @InjectView(R.id.btn_addGroup) Button _addButton;
 
+    String[] allUsers = new String[]{"Bruce","Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
+    String[] groupMembersArray;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_group);
         ButterKnife.inject(this);
+
+        //addItemsOnSpinner2();
+        //addListenerOnButton();
+
+        //Spinner Stuff
+
 
         _addUsers.setOnClickListener(new View.OnClickListener() {
 
@@ -51,11 +69,13 @@ public class AddGroupActivity extends AppCompatActivity {
 
     }
 
+
+
     public void addUsers(){
         _addUsers.setEnabled(false);
 
-        Intent intent = new Intent(this, SearchUserActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, SearchUserActivity.class);
+        //startActivity(intent);
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -78,7 +98,7 @@ public class AddGroupActivity extends AppCompatActivity {
 
         //String groupMembers = _groupMembers.getText().toString();
         String groupDeadline = _groupDeadLine.getText().toString();
-
+        // need to get deadline
 
         // TODO: Send new Group info to backend to be saved
 
@@ -102,5 +122,9 @@ public class AddGroupActivity extends AppCompatActivity {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
+
+
+
+
 
 }

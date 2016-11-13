@@ -25,4 +25,9 @@
     <string name="pick_date"> Deadline </string>
     <string name="init_text">No Users</string>
     <string name="search_title">Search Members</string>
+
+    <string name="user_prompt">Add Users</string>
+    <string name="type_to_search">Search Users</string>
+
+
 </resources>

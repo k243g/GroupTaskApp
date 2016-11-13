@@ -1,44 +1,37 @@
 package com.example.grouptaskapp;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
+public class GroupDetails extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
-
-    // Array of strings for testing group list
-    String[] groupArray = {"EE 461L","Senior Design","EE 460N","HW1: Blog"};
+    String[] groupUsers = {"Tim","Jayson"};
+    String[] groupTasks = {"Progress Report","Hw 1","HW 2","HW1"};
+    //Dates[] taskDates = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_group_details);
 
-        //Need to check if user is already logged in
-        //Get user profile
-        //Helpful link:
-        //https://stormpath.com/blog/build-user-authentication-for-android-app
+        //Grab Group data passed from Main Activity
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("Group");
+            //The key argument here must match that used in the other activity
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        }
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupTasks);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupArray);
-
-        ListView listView = (ListView) findViewById(R.id.group_list);
+        ListView listView = (ListView) findViewById(R.id.task_list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
@@ -51,24 +44,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
     }
-
 
     // Menu icons are inflated just as they were with actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.group_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_addGroup:
-                // User chose the "Addgroup" item, show the app settings UI...
-                Intent intent = new Intent(this, AddGroupActivity.class);
+            case R.id.action_deleteGroup:
+                //Need to delete group and go back to main activity
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
 
@@ -79,10 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-
 
 
 }
