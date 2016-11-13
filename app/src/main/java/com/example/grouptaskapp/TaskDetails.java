@@ -11,51 +11,37 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class GroupDetails extends AppCompatActivity {
+public class TaskDetails extends AppCompatActivity {
 
     //Test values
-    String[] groupUsers = {"Tim","Jayson"};
-    String[] groupTasks = {"Progress Report","Hw 1","HW 2","HW3"};
+    String[] taskUsers = {"Tim","Jayson"};
+
     //Dates[] taskDates = {};
-    String groupName;
-    String groupSummary;
-    String groupDeadline;
+    String taskName;
+    String taskSummary;
+    String taskDeadline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group_details);
+        setContentView(R.layout.activity_task_details);
 
         //Grab Group data passed from Main Activity
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
-            groupName = extras.getString("Group");
+            taskName = extras.getString("Task");
             //The key argument here must match that used in the other activity
 
         }
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        setTitle(groupName);
+        setTitle(taskName);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupTasks);
 
-        ListView listView = (ListView) findViewById(R.id.task_list);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String task = String.valueOf(parent.getItemAtPosition(position));
-                        Intent intent = new Intent(view.getContext(), TaskDetails.class);
-                        intent.putExtra("Task", task);
-                        startActivity(intent);
-                    }
-                }
-        );
 
-        ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.activity_listview, groupUsers);
+        ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.activity_listview, taskUsers);
 
         ListView listView2 = (ListView) findViewById(R.id.user_list);
         listView2.setAdapter(adapter2);
@@ -66,7 +52,7 @@ public class GroupDetails extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.group_menu, menu);
+        getMenuInflater().inflate(R.menu.task_menu, menu);
         return true;
     }
 

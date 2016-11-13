@@ -1,6 +1,5 @@
 package com.example.grouptaskapp;
 
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -23,31 +22,31 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class AddGroupActivity extends AppCompatActivity {
-    private static final String TAG = "AddGroupActivity";
+public class AddTaskActivity extends AppCompatActivity {
+    private static final String TAG = "AddTaskActivity";
 
-    @InjectView(R.id.input_groupName) EditText _groupName;
-    @InjectView(R.id.input_groupSummary) EditText _groupSummary;
-    @InjectView(R.id.textview1) TextView _groupDeadLine;
+    @InjectView(R.id.input_taskName) EditText _taskName;
+    @InjectView(R.id.input_taskSummary) EditText _taskSummary;
+    @InjectView(R.id.textview1) TextView _taskDeadLine;
 
     //@InjectView(R.id.btn_addUsers) Button _addUsers;
-    @InjectView(R.id.btn_addGroup) Button _addButton;
+    @InjectView(R.id.btn_addTask) Button _addButton;
 
 
     // Test values
     String[] allUsers = new String[]{"Bruce","Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
-    String[] groupMembersArray;
-    String admin; // set admin to current user
+    String[] assignedUsers;
+    // need to assign task to current user
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_group);
+        setContentView(R.layout.activity_add_task);
         ButterKnife.inject(this);
 
 
-
+        // TODO: Make multiSpinner work
         //Spinner Stuff
         // link: https://github.com/pratikbutani/MultiSelectSpinner
         // need help getting multispinner to work, only single spinner works right now
@@ -83,7 +82,7 @@ public class AddGroupActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                addGroup();
+                addTask();
             }
         });
 
@@ -93,16 +92,17 @@ public class AddGroupActivity extends AppCompatActivity {
 
 
 
-    public void addGroup() {
+    public void addTask() {
         Log.d(TAG, "Add");
 
         _addButton.setEnabled(false);
 
         //Get all values from fields and save
-        String groupName = _groupName.getText().toString();
-        String groupSummary = _groupSummary.getText().toString();
+        String taskName = _taskName.getText().toString();
+        String taskSummary = _taskSummary.getText().toString();
+
         //String groupMembers = _groupMembers.getText().toString();
-        String groupDeadline = _groupDeadLine.getText().toString();
+        String taskDeadline = _taskDeadLine.getText().toString();
 
         // TODO: Send new Group info to backend to be saved
 

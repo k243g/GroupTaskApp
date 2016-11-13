@@ -11,7 +11,6 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
@@ -32,7 +31,10 @@
         <activity
             android:name=".AddGroupActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".GroupDetails"></activity>
+        <activity
+            android:name=".GroupDetails"/>
+        <activity android:name=".TaskDetails" />
+        <activity android:name=".AddTaskActivity"></activity>
     </application>
 
 </manifest>
