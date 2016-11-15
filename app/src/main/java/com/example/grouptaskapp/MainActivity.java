@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_main, groupArray);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupArray);
 
         ListView listView = (ListView) findViewById(R.id.group_list);
         listView.setAdapter(adapter);

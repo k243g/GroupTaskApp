@@ -108,6 +108,11 @@ public class AddGroupActivity extends AppCompatActivity {
         String groupSummary = _groupSummary.getText().toString();
         String groupDeadline = _groupDeadLine.getText().toString();
         // Group members saved in groupUsers arraylist
+        Log.d(TAG, groupName +" : "+ groupSummary +" : " + groupDeadline);
+        for(int t =0; t< groupUsers.size(); ++t){
+            Log.d(TAG, groupUsers.get(t));
+        }
+
 
         // TODO: Send new Group info to backend to be saved
 

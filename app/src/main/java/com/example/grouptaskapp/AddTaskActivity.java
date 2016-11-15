@@ -35,8 +35,8 @@ public class AddTaskActivity extends AppCompatActivity {
     String[] reminderOptions = new String[]{"None","Day Before","Week Before"};
 
     // Test values
-    String[] allUsers = new String[]{"Bruce","Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
-    String[] assignedUsers;
+    String[] groupUsers = new String[]{"Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
+    ArrayList<String> assignedUsers;
     // need to assign task to current user
 
 
@@ -51,7 +51,7 @@ public class AddTaskActivity extends AppCompatActivity {
         //Spinner Stuff
         // link: https://github.com/pratikbutani/MultiSelectSpinner
 
-        final List<String> list = Arrays.asList(allUsers);
+        final List<String> list = Arrays.asList(groupUsers);
 
         final List<KeyPairBoolData> listArray3 = new ArrayList<>();
 
@@ -62,16 +62,18 @@ public class AddTaskActivity extends AppCompatActivity {
             h.setSelected(false);
             listArray3.add(h);
         }
-        
+
         MultiSpinnerSearch multiSpinner = (MultiSpinnerSearch) findViewById(R.id.multiSpinner);
         multiSpinner.setItems(listArray3,"Find Users", -1, new MultiSpinnerSearch.MultiSpinnerSearchListener() {
 
             @Override
             public void onItemsSelected(List<KeyPairBoolData> items) {
-
+                assignedUsers = new ArrayList<String>();
                 for (int i = 0; i < items.size(); i++) {
                     if (items.get(i).isSelected()) {
                         Log.i("TAG", i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                        // save name into group array
+                        assignedUsers.add(items.get(i).getName());
                     }
                 }
             }
@@ -101,8 +103,9 @@ public class AddTaskActivity extends AppCompatActivity {
         String taskName = _taskName.getText().toString();
         String taskSummary = _taskSummary.getText().toString();
 
-        //String groupMembers = _groupMembers.getText().toString();
+        //assignedUsers
         String taskDeadline = _taskDeadLine.getText().toString();
+
 
         // TODO: Send new Task info to backend to be saved
 
