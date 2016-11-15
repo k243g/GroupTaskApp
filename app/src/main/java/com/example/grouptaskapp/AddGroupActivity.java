@@ -33,7 +33,7 @@ public class AddGroupActivity extends AppCompatActivity {
     //@InjectView(R.id.btn_addUsers) Button _addUsers;
     @InjectView(R.id.btn_addGroup) Button _addButton;
 
-
+    User currentUser;
     ArrayList<String> groupUsers;
 
     // TODO: Get all Users and other info from backend
@@ -112,6 +112,8 @@ public class AddGroupActivity extends AppCompatActivity {
         for(int t =0; t< groupUsers.size(); ++t){
             Log.d(TAG, groupUsers.get(t));
         }
+
+        //Group newGroup = new Group(groupName,groupSummary,groupDeadline, currentUser, );
 
 
         // TODO: Send new Group info to backend to be saved

@@ -105,7 +105,10 @@ public class AddTaskActivity extends AppCompatActivity {
 
         //assignedUsers
         String taskDeadline = _taskDeadLine.getText().toString();
-
+        Log.d(TAG, taskName +" : "+ taskSummary +" : " + taskDeadline);
+        for(int t =0; t< assignedUsers.size(); ++t){
+            Log.d(TAG, assignedUsers.get(t));
+        }
 
         // TODO: Send new Task info to backend to be saved
 

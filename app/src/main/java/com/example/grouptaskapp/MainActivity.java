@@ -18,7 +18,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     // Array of strings for testing group list
+    User currentUser;
     String[] groupArray = {"EE 461L","Senior Design","EE 460N","HW1: Blog"};
+    //String[] groupArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
 
+
+
+
+
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupArray);
+        //ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, currentUser.getGroupList());
 
         ListView listView = (ListView) findViewById(R.id.group_list);
         listView.setAdapter(adapter);

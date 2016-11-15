@@ -1,6 +1,7 @@
 package com.example.grouptaskapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,6 +22,8 @@ public class SignupActivity extends AppCompatActivity {
     @InjectView(R.id.input_password) EditText _passwordText;
     @InjectView(R.id.btn_signup) Button _signupButton;
     @InjectView(R.id.link_login) TextView _loginLink;
+
+    User u;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +67,9 @@ public class SignupActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        // TODO: Implement your own signup logic here.
+        u = new User(name, email, password);
+
+        // TODO: Implement your own signup logic here, save to backend, check if already registered
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -81,7 +86,10 @@ public class SignupActivity extends AppCompatActivity {
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
+        //Intent output = new Intent();
+        //output.putExtra("User", u);
         setResult(RESULT_OK, null);
+
         finish();
     }
 
