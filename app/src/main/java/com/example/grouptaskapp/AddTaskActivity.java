@@ -32,6 +32,7 @@ public class AddTaskActivity extends AppCompatActivity {
     //@InjectView(R.id.btn_addUsers) Button _addUsers;
     @InjectView(R.id.btn_addTask) Button _addButton;
 
+    String[] reminderOptions = new String[]{"None","Day Before","Week Before"};
 
     // Test values
     String[] allUsers = new String[]{"Bruce","Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
@@ -46,7 +47,7 @@ public class AddTaskActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
 
-        // TODO: Make multiSpinner work
+
         //Spinner Stuff
         // link: https://github.com/pratikbutani/MultiSelectSpinner
 
@@ -61,8 +62,7 @@ public class AddTaskActivity extends AppCompatActivity {
             h.setSelected(false);
             listArray3.add(h);
         }
-
-
+        
         MultiSpinnerSearch multiSpinner = (MultiSpinnerSearch) findViewById(R.id.multiSpinner);
         multiSpinner.setItems(listArray3,"Find Users", -1, new MultiSpinnerSearch.MultiSpinnerSearchListener() {
 

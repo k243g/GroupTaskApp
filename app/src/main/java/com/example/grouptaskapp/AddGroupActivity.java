@@ -34,10 +34,12 @@ public class AddGroupActivity extends AppCompatActivity {
     @InjectView(R.id.btn_addGroup) Button _addButton;
 
 
-    // Test values
-    String[] allUsers = new String[]{"Bruce","Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
-    String[] groupMembersArray;
-    String admin; // set admin to current user
+    ArrayList<String> groupUsers;
+
+    // TODO: Get all Users and other info from backend
+    // test values
+    String[] allUsers = new String[]{"Richard","Jason","Tim", "Damien", "Carrie","Stephanie"};
+    String admin = "Bruce"; // set admin to current user
 
 
     @Override
@@ -69,10 +71,13 @@ public class AddGroupActivity extends AppCompatActivity {
 
             @Override
             public void onItemsSelected(List<KeyPairBoolData> items) {
-
+                //clear group members array NOTE: another way to get members selected is to
+                groupUsers = new ArrayList<String>();
                 for (int i = 0; i < items.size(); i++) {
                     if (items.get(i).isSelected()) {
                         Log.i("TAG", i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+                        // save name into group array
+                        groupUsers.add(items.get(i).getName());
                     }
                 }
             }
@@ -101,8 +106,8 @@ public class AddGroupActivity extends AppCompatActivity {
         //Get all values from fields and save
         String groupName = _groupName.getText().toString();
         String groupSummary = _groupSummary.getText().toString();
-        //String groupMembers = _groupMembers.getText().toString();
         String groupDeadline = _groupDeadLine.getText().toString();
+        // Group members saved in groupUsers arraylist
 
         // TODO: Send new Group info to backend to be saved
 
