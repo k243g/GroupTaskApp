@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GroupDetails extends AppCompatActivity {
@@ -62,7 +63,22 @@ public class GroupDetails extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         setTitle(groupName);
 
-        adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupTasks);
+        //Need to show if task is complete
+        //make new arraylist that has complete in it
+        List<String> groupTasksStatus = new ArrayList<String>(){};
+
+        for(int i =0; i < groupTasks.size();i++){
+            Task task = g.getTaskFromString(groupTasks.get(i));
+            if(task.isCompleted()){
+                groupTasksStatus.add(groupTasks.get(i)+" : COMPLETE");
+            }
+            else
+            {
+                groupTasksStatus.add(groupTasks.get(i));
+            }
+        }
+        //adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupTasks);
+        adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, groupTasksStatus);
 
         ListView listView = (ListView) findViewById(R.id.task_list);
         listView.setAdapter(adapter);
@@ -71,6 +87,9 @@ public class GroupDetails extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String task = String.valueOf(parent.getItemAtPosition(position));
+                        if(task.contains(" : COMPLETE")){
+                            task = task.substring(0,task.indexOf(" : COMPLETE"));
+                        }
                         Intent intent = new Intent(view.getContext(), TaskDetails.class);
                         intent.putExtra("Task", task);
                         intent.putExtra("Group", groupName);
@@ -136,11 +155,23 @@ public class GroupDetails extends AppCompatActivity {
         adapter.clear();
 
         groupTasks = g.getTaskList();
+        List<String> groupTasksStatus = new ArrayList<String>(){};
+
+        for(int i =0; i < groupTasks.size();i++){
+            Task task = g.getTaskFromString(groupTasks.get(i));
+            if(task.isCompleted()){
+                groupTasksStatus.add(groupTasks.get(i)+" : COMPLETE");
+            }
+            else
+            {
+                groupTasksStatus.add(groupTasks.get(i));
+            }
+        }
         List<String> newTasks = g.getTaskList();
         for(int t =0; t< newTasks.size(); ++t){
             Log.d(TAG, newTasks.get(t));
         }
-        adapter.addAll(newTasks);
+        adapter.addAll(groupTasksStatus);
         adapter.notifyDataSetChanged();
 
     }

@@ -47,6 +47,7 @@ public class TaskDetails extends AppCompatActivity {
         d = Data.Instance();
         g = d.getGroup(groupName);
         t = g.getTaskFromString(taskName);
+        taskComplete = t.isCompleted();
         taskUsers = t.getAssignedUsers();
         taskSummary = t.getSummary();
         taskDeadline = t.getDeadline();
@@ -59,7 +60,15 @@ public class TaskDetails extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        setTitle(taskName);
+
+        if(taskComplete){
+            setTitle(taskName+ " : COMPLETE");
+        }
+        else{
+            setTitle(taskName);
+        }
+
+
 
 
 
