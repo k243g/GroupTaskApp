@@ -35,6 +35,12 @@
             android:name=".GroupDetails"/>
         <activity android:name=".TaskDetails" />
         <activity android:name=".AddTaskActivity"></activity>
+        <activity
+            android:name=".EditGroupActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".EditTaskActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 

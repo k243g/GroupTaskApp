@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Kerrn on 11/14/2016.
+
  */
 public class User{
     private String name;

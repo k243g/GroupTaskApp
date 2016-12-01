@@ -2,10 +2,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Need to add edit and complete icons -->
+
     <item
-        android:id="@+id/action_addTask"
-        android:icon="@drawable/ic_add_box_black_48dp"
-        android:title="@string/action_addTask"
+        android:id="@+id/action_deleteTask"
+        android:icon="@drawable/ic_delete_forever_black_48dp"
+        android:title="@string/action_deleteTask"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_editTask"
+        android:icon="@drawable/ic_mode_edit_black_48dp"
+        android:title="@string/action_editTask"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_doneTask"
+        android:icon="@drawable/ic_done_black_48dp"
+        android:title="@string/action_doneTask"
+        app:showAsAction="always"/>
+
 
 </menu>

@@ -22,8 +22,11 @@
     <string name="action_favorite">Favorite</string>
     <string name="action_addGroup">Add New Group</string>
     <string name="action_addTask">Add New Task</string>
-    <string name="action_deleteGroup">Add New Group</string>
-    <string name="action_deleteTask">Add New Task</string>
+    <string name="action_deleteGroup">Delete Group</string>
+    <string name="action_deleteTask">Delete Task</string>
+    <string name="action_editGroup">Edit Group</string>
+    <string name="action_editTask">Edit Task</string>
+    <string name="action_doneTask">Complete Task</string>
     <string name="pick_date"> Deadline </string>
     <string name="set_noti"> Set Notifications </string>
     <string name="init_text">No Users</string>

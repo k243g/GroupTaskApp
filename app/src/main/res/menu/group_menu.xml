@@ -3,6 +3,17 @@
 
     <!--  -->
     <item
+        android:id="@+id/action_deleteGroup"
+        android:icon="@drawable/ic_delete_forever_black_48dp"
+        android:title="@string/action_deleteGroup"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_editGroup"
+        android:icon="@drawable/ic_mode_edit_black_48dp"
+        android:title="@string/action_editGroup"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_addTask"
         android:icon="@drawable/ic_add_box_black_48dp"
         android:title="@string/action_addTask"

@@ -15,13 +15,41 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+    <TextView
+        android:text="Group Info"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="16dip"
+        android:id="@+id/textView" />
 
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="@color/colorSecondaryText"/>
+
+    <TextView
+        android:text="Deadline:"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="16dip"/>
+
+    <TextView
+        android:id="@+id/textviewDL"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="16dip"/>
 
         <TextView
             android:id="@+id/textview1"
             android:text="Tasks"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="30dp"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="16dip"/>
 
         <ListView
             android:id="@+id/task_list"
@@ -34,7 +62,9 @@
         android:id="@+id/textview2"
         android:text="Group Members"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="30dp"
+        android:textSize="16dip"
+        android:textColor="@color/colorSecondaryText"/>
 
     <ListView
         android:id="@+id/user_list"

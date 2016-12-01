@@ -2,20 +2,16 @@ package com.example.grouptaskapp;
 
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import android.content.Intent;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,17 +20,18 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-import static android.R.id.message;
+public class EditGroupActivity extends AppCompatActivity {
+    private static final String TAG = "EditGroupActivity";
 
-public class AddGroupActivity extends AppCompatActivity {
-    private static final String TAG = "AddGroupActivity";
-
-    @InjectView(R.id.input_groupName) EditText _groupName;
+    @InjectView(R.id.input_groupName)
+    EditText _groupName;
     @InjectView(R.id.input_groupSummary) EditText _groupSummary;
-    @InjectView(R.id.textview1) TextView _groupDeadLine;
+    @InjectView(R.id.textview1)
+    TextView _groupDeadLine;
 
     //@InjectView(R.id.btn_addUsers) Button _addUsers;
-    @InjectView(R.id.btn_addGroup) Button _addButton;
+    @InjectView(R.id.btn_editGroup)
+    Button _editButton;
 
     //User currentUser;
     ArrayList<String> groupUsers;
@@ -45,17 +42,38 @@ public class AddGroupActivity extends AppCompatActivity {
     String[] allUsers;
     String admin;
     Data d;
+    String groupName;
+    Group g;
+    String groupSummary;
+    String groupDeadline;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_group);
+        setContentView(R.layout.activity_edit_group);
         ButterKnife.inject(this);
 
+        //Grab Group data passed
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+
+            groupName = extras.getString("Group");
+            //The key argument here must match that used in the other activity
+
+        }
         d = Data.Instance();
+        g = d.getGroup(groupName);
+        groupSummary = g.getSummary();
+        groupDeadline = g.getDeadline();
         admin = d.getCurrentUser();
         allUsers = d.getAllUsers();
+
+
+        //set up all group info
+        _groupName.setText(groupName);
+        _groupSummary.setText(groupSummary);
+        _groupDeadLine.setText(groupDeadline);
 
         //Spinner Stuff
         // link: https://github.com/pratikbutani/MultiSelectSpinner
@@ -91,7 +109,7 @@ public class AddGroupActivity extends AppCompatActivity {
         });
         //End of Spinner Stuff
 
-        _addButton.setOnClickListener(new View.OnClickListener() {
+        _editButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -113,7 +131,7 @@ public class AddGroupActivity extends AppCompatActivity {
             return;
         }
 
-        _addButton.setEnabled(false);
+        _editButton.setEnabled(false);
 
         //Get all values from fields and save
         String groupName = _groupName.getText().toString();
@@ -125,6 +143,8 @@ public class AddGroupActivity extends AppCompatActivity {
         for(int t =0; t< groupUsers.size(); ++t){
             Log.d(TAG, groupUsers.get(t));
         }
+        //delete old group
+        d.deleteGroup(g);
 
         if(true) {
             Group newGroup = new Group(groupName, groupSummary, groupDeadline, admin, groupUsers);
@@ -155,7 +175,7 @@ public class AddGroupActivity extends AppCompatActivity {
 
 
     public void addSuccess() {
-        _addButton.setEnabled(true);
+        _editButton.setEnabled(true);
         Intent resultIntent = new Intent();
         //resultIntent.putExtra("String");
         setResult(Activity.RESULT_OK, resultIntent);
@@ -206,7 +226,7 @@ public class AddGroupActivity extends AppCompatActivity {
     }
     public void onAddFailed() {
 
-        _addButton.setEnabled(true);
+        _editButton.setEnabled(true);
     }
 
 

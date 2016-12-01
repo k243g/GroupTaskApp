@@ -19,13 +19,36 @@
         android:id="@+id/textview"
         android:text="Tasks Info"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="16dip"/>
+    <TextView
+        android:id="@+id/textview0"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="@color/colorSecondaryText"/>
+
+    <TextView
+        android:text="Deadline:"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="16dip"/>
+
+    <TextView
+        android:id="@+id/textviewDL"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="16dip"/>
 
     <TextView
         android:id="@+id/textview1"
         android:text="Assigned Users"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="30dp"
+        android:textSize="16dip"
+        android:textColor="@color/colorSecondaryText"/>
     <ListView
         android:id="@+id/user_list"
         android:listSelector="@android:color/transparent"

@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingRight="24dp"
+        android:weightSum="1">
 
         <RelativeLayout
             android:id="@+id/header"
@@ -19,47 +20,48 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:background="@color/colorAccent"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="0.19">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
-                android:text="Create Task"
+                android:text="Edit Group"
                 android:textColor="@color/colorSecondaryText"
                 android:textSize="20sp" />
         </RelativeLayout>
 
-        <!-- Task Name Label -->
+        <!-- Group Name Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_taskName"
+            <EditText android:id="@+id/input_groupName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text|textCapWords"
-                android:hint="Task Name" />
+                android:hint="Group Name" />
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Task Summary Label -->
+        <!-- Group Summary Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_taskSummary"
+            <EditText android:id="@+id/input_groupSummary"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="4"
                 android:lines="4"
                 android:inputType="textMultiLine|textAutoCorrect"
                 android:background="@drawable/textview_border"
-                android:hint="Task Details"/>
+                android:hint="Group Details"/>
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Task Deadline -->
+        <!-- Group Deadline -->
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/relativeLayout2"
             android:layout_width="fill_parent"
@@ -82,7 +84,6 @@
                 android:layout_alignParentRight="true" />
 
         </RelativeLayout>
-
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/relativeLayout1"
@@ -107,13 +108,13 @@
 
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_addTask"
+            android:id="@+id/btn_editGroup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Create Task"/>
+            android:text="Update Group"/>
 
     </LinearLayout>
 </ScrollView>
