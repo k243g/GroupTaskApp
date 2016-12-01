@@ -102,7 +102,7 @@ public class EditGroupActivity extends AppCompatActivity {
                     if (items.get(i).isSelected()) {
                         Log.i("TAG", i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
                         // save name into group array
-                        groupUsers.add(items.get(i).getName());//
+                        groupUsers.add(items.get(i).getName());
                     }
                 }
             }
