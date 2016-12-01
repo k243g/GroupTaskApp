@@ -31,6 +31,7 @@
     <string name="set_noti"> Set Notifications </string>
     <string name="init_text">No Users</string>
     <string name="search_title">Search Members</string>
+    <string name="your_groups">Your Groups</string>
 
     <string name="user_prompt">Add Users</string>
     <string name="type_to_search">Search Users</string>
